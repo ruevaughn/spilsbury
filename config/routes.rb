@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "obituaries#index"
+  root "static#home"
 
   resources :obituaries, only: [:index, :show]
 
