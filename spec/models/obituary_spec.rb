@@ -1,8 +1,8 @@
 require 'rails_helper'
-describe :obituary do
-  it "is cool" do
-    obituary = Obituary.new
-    expect(obituary).to be_a(Obituary)
+describe Obituary do
+  it "can be created" do
+    obituary = create(:obituary)
+    expect(obituary.valid?).to be(true)
   end
 end
 
