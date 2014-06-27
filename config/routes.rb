@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :models
   root "static#home"
+
+  devise_for :models
 
   resources :obituaries, only: [:index, :show]
 
