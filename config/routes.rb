@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  root "obituaries#index"
+
+  resources :obituaries, only: [:index, :show]
+
+  namespace :admin do
+    resources :obituaries
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

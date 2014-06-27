@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @obituary.first_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @obituary.middle_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @obituary.last_name %>
+</p>
+
+<p>
+  <strong>Born date:</strong>
+  <%= @obituary.born_date %>
+</p>
+
+<p>
+  <strong>Death date:</strong>
+  <%= @obituary.death_date %>
+</p>
+
+<%= link_to 'Edit', edit_obituary_path(@obituary) %> |
+<%= link_to 'Back', obituaries_path %>
