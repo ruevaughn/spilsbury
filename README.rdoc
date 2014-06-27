@@ -1,12 +1,12 @@
-== README
+== rails 4.1.1
+
+== ruby 2.1.0p0
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
 
-ruby 2.1.0p0
-rails 4.1.1
 
 * System dependencies
 
