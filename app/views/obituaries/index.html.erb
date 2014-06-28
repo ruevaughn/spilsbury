@@ -1,0 +1,16 @@
+<h1><small> Obituaries Page</small></h1>
+<% @obituaries.each do |obituary| %>
+  <table class="table">
+    <thead>
+      <tr>
+        <td></td>
+        <td>Name</td>
+      </tr>
+    </thead>
+    </tr>
+    <tr>
+      <td><%= image_tag obituary.image.url %></td>
+      <td><%= obituary.name %></td>
+    </tr>
+  </table>
+<% end %>

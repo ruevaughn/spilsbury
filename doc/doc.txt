@@ -1,1 +1,3 @@
 rails g devise:views
+Install imagemagick
+brew install imagemagick
