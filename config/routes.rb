@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :admins
-  root "static#home"
+  root 'static#home'
 
   resources :obituaries, only: [:index, :show]
 
   namespace :admin do
+    get 'home', action: 'home', controller: 'static', as: :panel
     resources :obituaries
   end
 
