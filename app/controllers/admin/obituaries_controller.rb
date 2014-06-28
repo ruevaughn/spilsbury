@@ -1,4 +1,5 @@
-class Admin::ObituariesController < Admin::ApplicationController
+class Admin::ObituariesController < ApplicationController
+  before_filter :authenticate_admin!
   before_action :set_obituary, only: [:show, :edit, :update, :destroy]
 
   # GET /obituaries
