@@ -22,7 +22,7 @@
         <td><%= obituary.death_date %></td>
         <td><%= link_to 'Show', obituary %></td>
         <td><%= link_to 'Edit', edit_admin_obituary_path(obituary) %></td>
-        <td><%= link_to 'Destroy', obituary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', [:admin, obituary], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

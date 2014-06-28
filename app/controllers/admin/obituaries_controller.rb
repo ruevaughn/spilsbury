@@ -28,7 +28,7 @@ class Admin::ObituariesController < Admin::ApplicationController
 
     respond_to do |format|
       if @obituary.save
-        format.html { redirect_to @obituary, notice: 'Obituary was successfully created.' }
+        format.html { redirect_to admin_obituaries_path, notice: 'Obituary was successfully created.' }
         format.json { render :show, status: :created, location: @obituary }
       else
         format.html { render :new }

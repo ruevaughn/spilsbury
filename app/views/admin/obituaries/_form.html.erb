@@ -1,4 +1,4 @@
-<%= form_for(@obituary) do |f| %>
+<%= form_for([:admin, @obituary]) do |f| %>
   <% if @obituary.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@obituary.errors.count, "error") %> prohibited this obituary from being saved:</h2>
