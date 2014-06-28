@@ -56,7 +56,7 @@ class Admin::ObituariesController < Admin::ApplicationController
   def destroy
     @obituary.destroy
     respond_to do |format|
-      format.html { redirect_to obituaries_url, notice: 'Obituary was successfully destroyed.' }
+      format.html { redirect_to admin_obituaries_url, notice: 'Obituary was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
