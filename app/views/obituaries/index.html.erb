@@ -1,16 +1,19 @@
 <h1><small> Obituaries Page</small></h1>
-<% @obituaries.each do |obituary| %>
-  <table class="table">
-    <thead>
+<table class="table">
+  <thead>
+    <div class="row">
       <tr>
         <td></td>
-        <td>Name</td>
+        <td></td>
+        <td></td>
       </tr>
-    </thead>
-    </tr>
+    </div>
+  </thead>
+  <% @obituaries.each do |obituary| %>
     <tr>
       <td><%= image_tag obituary.image.url(:thumb) %></td>
       <td><%= obituary.name %></td>
+      <td><%= obituary.born_date.strftime('%B %d, %Y') %> - <%= obituary.death_date.strftime('%B %d, %Y') %></td>
     </tr>
-  </table>
-<% end %>
+  <% end %>
+</table>
