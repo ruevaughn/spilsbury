@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629225553) do
+ActiveRecord::Schema.define(version: 20140629232830) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -29,6 +29,30 @@ ActiveRecord::Schema.define(version: 20140629225553) do
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+
+  create_table "funerals", force: true do |t|
+    t.text     "location"
+    t.integer  "obituary_id"
+    t.datetime "funeral_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "guestbook_signatures", force: true do |t|
+    t.integer  "guestbook_id"
+    t.string   "name"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "guestbook_signatures", ["guestbook_id"], name: "index_guestbook_signatures_on_guestbook_id"
+
+  create_table "guestbooks", force: true do |t|
+    t.integer  "obituary_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "obituaries", force: true do |t|
     t.string   "first_name"

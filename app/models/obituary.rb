@@ -5,4 +5,9 @@ class Obituary < ActiveRecord::Base
   def name
     first_name + " " + last_name
   end
+
+  def life_range
+    born_date.strftime('%B %d, %Y') + " - " +  death_date.strftime('%B %d, %Y')
+  end
+
 end

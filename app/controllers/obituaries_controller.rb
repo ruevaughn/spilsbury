@@ -4,6 +4,7 @@ class ObituariesController < ApplicationController
   end
 
   def show
+    @obituary = Obituary.find(params[:id])
   end
 
 end
