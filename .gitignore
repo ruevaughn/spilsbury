@@ -16,4 +16,4 @@
 /tmp
 
 *.sw[a-z]
-public/system/*
+public/system/

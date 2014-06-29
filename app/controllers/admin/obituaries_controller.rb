@@ -70,6 +70,6 @@ class Admin::ObituariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def obituary_params
-      params.require(:obituary).permit(:first_name, :middle_name, :last_name, :gender, :born_date, :death_date, :image)
+      params.require(:obituary).permit(:first_name, :middle_name, :last_name, :gender, :born_date, :death_date)
     end
 end
