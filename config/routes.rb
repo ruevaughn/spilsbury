@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :guestbook_signatures
+
+  resources :guestbooks
+
   devise_for :admins
   root 'static#home'
 

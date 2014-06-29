@@ -1,4 +1,5 @@
 class Obituary < ActiveRecord::Base
+  belongs_to :person
   mount_uploader :obituary_image, ObituaryImageUploader
 
   def name

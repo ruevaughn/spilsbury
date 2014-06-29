@@ -1,0 +1,29 @@
+<h1>Listing guestbook_signatures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Guestbook</th>
+      <th>Name</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guestbook_signatures.each do |guestbook_signature| %>
+      <tr>
+        <td><%= guestbook_signature.guestbook %></td>
+        <td><%= guestbook_signature.name %></td>
+        <td><%= guestbook_signature.message %></td>
+        <td><%= link_to 'Show', guestbook_signature %></td>
+        <td><%= link_to 'Edit', edit_guestbook_signature_path(guestbook_signature) %></td>
+        <td><%= link_to 'Destroy', guestbook_signature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guestbook signature', new_guestbook_signature_path %>

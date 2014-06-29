@@ -5,6 +5,7 @@ class CreateObituaries < ActiveRecord::Migration
       t.string :middle_name
       t.string :last_name
       t.string :gender
+      t.text :description
       t.date :born_date
       t.date :death_date
 

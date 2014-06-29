@@ -1,0 +1,2 @@
+module GuestbookSignaturesHelper
+end
