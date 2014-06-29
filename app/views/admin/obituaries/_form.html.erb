@@ -19,25 +19,25 @@
     <%= f.label :middle_name %><br>
     <%= f.text_field :middle_name, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= radio_button_tag :gender, "male" %>
     <%= f.label :male  %><br>
     <%= radio_button_tag :gender, "female" %>
     <%= f.label :female  %><br>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :born_date %><br>
     <%= f.date_select :born_date %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :death_date %><br>
     <%= f.date_select :death_date %>
   </div>
-  <div class="field">
+  <div class="form-group">
      <%= f.file_field :image %>
   </div>
   <div class="actions">
