@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'static#home'
 
   resources :obituaries, only: [:index, :show]
+  resources :guestbooks, only: [:show]
 
   namespace :admin do
     get 'home', action: 'home', controller: 'static', as: :panel
