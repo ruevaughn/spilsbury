@@ -2,8 +2,22 @@
 
 <p>
   <strong>Obituary:</strong>
-  <%= @guestbook.obituary_id %>
+  <%= @guestbook.obituary.name %>
 </p>
 
-<%= link_to 'Edit', edit_guestbook_path(@guestbook) %> |
-<%= link_to 'Back', guestbooks_path %>
+<p><strong>Guestbook Signatures</strong></p>
+<table>
+  <tbody>
+    <% @guestbook.guestbook_signatures.each do |guestbook_signature| %>
+      <tr>
+        <td><%= guestbook_signature.name %></td>
+        <td><%= guestbook_signature.message %></td>
+        <td><%= link_to "Edit" %></td>
+        <td><%= link_to "Show" %></td>
+        <td><%= link_to "Destroy" %></td>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_admin_guestbook_path(@guestbook) %> |
+<%= link_to 'Back', admin_guestbooks_path %>
