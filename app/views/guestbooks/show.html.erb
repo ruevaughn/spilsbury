@@ -1,1 +1,12 @@
-This is the guestbook show page
+Guestbook for <%= @guestbook.obituary.name %>
+<br />
+<p><u>Signatures:</u></p>
+<hr>
+<% @guestbook.guestbook_signatures.each do |guestbook_signature| %>
+  <p>From: <%= guestbook_signature.name %></p>
+  <p>Message: <%= guestbook_signature.message %></p>
+  <hr>
+<% end %>
+<p><%= link_to "Add a signature", new_guestbook_guestbook_signature_path(guestbook_id: @guestbook.id) %>
+
+<p><%= link_to "Back", obituary_path(@guestbook.obituary) %></p>
