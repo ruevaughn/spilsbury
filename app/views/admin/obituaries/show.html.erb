@@ -17,12 +17,12 @@
 
 <p>
   <strong>Born date:</strong>
-  <%= @obituary.born_date %>
+  <%= @obituary.born_date_to_s %>
 </p>
 
 <p>
   <strong>Death date:</strong>
-  <%= @obituary.death_date %>
+  <%= @obituary.death_date_to_s %>
 </p>
 
 <%= link_to 'Edit', edit_admin_obituary_path(@obituary) %> |

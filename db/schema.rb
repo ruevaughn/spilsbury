@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20140629232830) do
     t.string   "middle_name"
     t.string   "last_name"
     t.string   "gender"
+    t.text     "description"
     t.date     "born_date"
     t.date     "death_date"
     t.datetime "created_at"

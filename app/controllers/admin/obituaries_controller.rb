@@ -5,7 +5,7 @@ class Admin::ObituariesController < ApplicationController
   # GET /obituaries
   # GET /obituaries.json
   def index
-    @obituaries = Obituary.all
+    @obituaries = Obituary.all.descending
   end
 
   # GET /obituaries/1
