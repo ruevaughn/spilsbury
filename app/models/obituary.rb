@@ -1,5 +1,6 @@
 class Obituary < ActiveRecord::Base
   belongs_to :person
+  has_one :guestbook
   mount_uploader :obituary_image, ObituaryImageUploader
 
   scope :ascending, -> {order("death_date asc")}

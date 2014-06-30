@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140629232830) do
     t.text     "description"
     t.date     "born_date"
     t.date     "death_date"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "obituary_image"

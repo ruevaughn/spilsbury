@@ -26,7 +26,7 @@ class Admin::ObituariesController < Admin::ApplicationController
   # POST /obituaries.json
   def create
     @obituary = Obituary.new(obituary_params)
-
+    @obituary.build_guestbook
     respond_to do |format|
       if @obituary.save
         format.html { redirect_to admin_obituaries_path, notice: 'Obituary was successfully created.' }

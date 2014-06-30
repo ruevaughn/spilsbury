@@ -1,4 +1,4 @@
-class GuestbooksController < ApplicationController
+class Admin::GuestbooksController < Admin::ApplicationController
   before_action :set_guestbook, only: [:show, :edit, :update, :destroy]
 
   # GET /guestbooks

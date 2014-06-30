@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :guestbook_signatures
 
-  resources :guestbooks
 
   devise_for :admins
   root 'static#home'
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'home', action: 'home', controller: 'static', as: :panel
     resources :obituaries
+    resources :guestbooks
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

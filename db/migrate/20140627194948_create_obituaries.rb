@@ -8,6 +8,7 @@ class CreateObituaries < ActiveRecord::Migration
       t.text :description
       t.date :born_date
       t.date :death_date
+      t.boolean :active
 
       t.timestamps
     end
