@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'home', action: 'home', controller: 'static', as: :home
+  get 'staff', action: 'staff', controller: 'static', as: :staff
+  get 'services', action: 'services', controller: 'static', as: :services
+  get 'merchandise', action: 'merchandise', controller: 'static', as: :merchandise
+  get 'contact', action: 'contact', controller: 'static', as: :contact
 
   devise_for :admins
   root 'static#home'

@@ -14,14 +14,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><%= link_to "Home", home_path%>
         <li><%= link_to "Obituaries", obituaries_path %></li>
-        <li><a href="#">Staff</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Merchandise</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <span class="caret"></span></a>
-        </li>
+        <li><%= link_to "Staff", staff_path %></li>
+        <li><%= link_to "Services", services_path %></li>
+        <li><%= link_to "Merchandise", merchandise_path %></li>
+        <li><%= link_to "Contact", contact_path %></li>
         <% if admin_signed_in? %>
           <li><%= link_to "Admin Panel", admin_panel_path %></li>
         <% else %>
