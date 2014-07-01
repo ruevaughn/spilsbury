@@ -24,6 +24,7 @@ admin = Admin.new(email: 'test@test.com', password: 'test1234', password_confirm
 admin.save!
 
 Obituary.delete_all
+Guestbook.delete_all
 10.times do
   obituary = Obituary.new(first_name: Faker::Name.first_name, middle_name: Faker::Name.first_name, last_name: Faker::Name.last_name, born_date: random_born_date, death_date: random_death_date)
   obituary.build_guestbook

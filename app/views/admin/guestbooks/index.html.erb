@@ -11,7 +11,7 @@
   <tbody>
     <% @guestbooks.each do |guestbook| %>
       <tr>
-        <td><%= guestbook.obituary.name %></td>
+        <td><%= link_to guestbook.obituary.name, admin_guestbook_path(guestbook) %></td>
         <td><%= link_to 'Show', admin_guestbook_path(guestbook) %></td>
         <td><%= link_to 'Edit', edit_admin_guestbook_path(guestbook) %></td>
         <td><%= link_to 'Destroy', admin_guestbook_path(guestbook), method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -19,7 +19,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Guestbook', new_admin_guestbook_path %>
