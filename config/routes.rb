@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :staffs
+  resources :staffs, only: [:index]
 
   get 'home', action: 'home', controller: 'static', as: :home
-  get 'staff', action: 'staff', controller: 'static', as: :staff
   get 'services', action: 'services', controller: 'static', as: :services
   get 'merchandise', action: 'merchandise', controller: 'static', as: :merchandise
   get 'contact', action: 'contact', controller: 'static', as: :contact
@@ -20,7 +19,9 @@ Rails.application.routes.draw do
     get 'home', action: 'home', controller: 'static', as: :panel
     resources :obituaries
     resources :guestbooks
+    resources :staffs
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
