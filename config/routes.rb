@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :staffs
+
   get 'home', action: 'home', controller: 'static', as: :home
   get 'staff', action: 'staff', controller: 'static', as: :staff
   get 'services', action: 'services', controller: 'static', as: :services
