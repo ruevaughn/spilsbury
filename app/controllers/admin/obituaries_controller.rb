@@ -2,17 +2,6 @@ class Admin::ObituariesController < Admin::ApplicationController
   before_filter :authenticate_admin!
   before_action :set_obituary, only: [:show, :edit, :update, :destroy]
 
-  # GET /obituaries
-  # GET /obituaries.json
-  def index
-    @obituaries = Obituary.all.descending
-  end
-
-  # GET /obituaries/1
-  # GET /obituaries/1.json
-  def show
-  end
-
   # GET /obituaries/new
   def new
     @obituary = Obituary.new

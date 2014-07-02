@@ -11,7 +11,7 @@
   </thead>
   <% @obituaries.each do |obituary| %>
     <tr>
-      <td><%= link_to obituary.name, obituary_path(obituary) %></td>
+      <td><%= link_to obituary.name, admin_obituary_path(obituary) %></td>
       <td><%= obituary.born_date.strftime('%B %d, %Y') %> - <%= obituary.death_date.strftime('%B %d, %Y') %></td>
     </tr>
   <% end %>
