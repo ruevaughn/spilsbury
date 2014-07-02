@@ -1,18 +1,39 @@
-<h1><small> Obituaries Page</small></h1>
-<table class="table">
+<h1>Listing obituaries</h1>
+
+<table class='table'>
   <thead>
-    <div class="row">
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </div>
-  </thead>
-  <% @obituaries.each do |obituary| %>
     <tr>
-      <td><%= link_to obituary.name, admin_obituary_path(obituary) %></td>
-      <td><%= obituary.born_date.strftime('%B %d, %Y') %> - <%= obituary.death_date.strftime('%B %d, %Y') %></td>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Last name</th>
+      <th>Born date</th>
+      <th>Death date</th>
+    <% if admin_signed_in? %>
+      <th colspan="3">Admin Actions</th>
+    <% end %>
     </tr>
+  </thead>
+
+  <tbody>
+    <% @obituaries.each do |obituary| %>
+      <tr>
+        <td><%= obituary.first_name %></td>
+        <td><%= obituary.middle_name %></td>
+        <td><%= obituary.last_name %></td>
+        <td><%= obituary.born_date %></td>
+        <td><%= obituary.death_date %></td>
+  <% if admin_signed_in? %>
+        <td><%= link_to 'Show', admin_obituary_path(obituary) %></td>
+        <td><%= link_to 'Edit', edit_admin_obituary_path(obituary) %></td>
+        <td><%= link_to 'Destroy', [:admin, obituary], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   <% end %>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+
+<br>
+
+<% if admin_signed_in? %>
+  <%= link_to 'New Obituary', new_admin_obituary_path %>
+<% end %>
