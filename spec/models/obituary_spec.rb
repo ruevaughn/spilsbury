@@ -42,5 +42,19 @@ describe Obituary do
     end
   end
 
+  describe ".is_male?" do
+    it "returns true if male, false if not" do
+      obituary = build_stubbed(:obituary, gender: 'male')
+      expect(obituary.is_male?).to be(true)
+    end
+  end
+
+  describe ".is_female?" do
+    it "returns true if female, false if not" do
+      obituary = build_stubbed(:obituary, gender: 'female')
+      expect(obituary.is_female?).to be(true)
+    end
+  end
+
 end
 

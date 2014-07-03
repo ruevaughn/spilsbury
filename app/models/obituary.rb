@@ -21,4 +21,12 @@ class Obituary < ActiveRecord::Base
   def death_date_to_s
     death_date.strftime('%B %d, %Y')
   end
+
+  def is_male?
+    gender == 'male' ? true : false
+  end
+
+  def is_female?
+    gender == 'female' ? true : false
+  end
 end
