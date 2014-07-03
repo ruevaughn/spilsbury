@@ -2,8 +2,9 @@ class CreateFunerals < ActiveRecord::Migration
   def change
     create_table :funerals do |t|
       t.text :location
-      t.integer :obituary_id
-      t.datetime :funeral_date
+      t.datetime :service_begins
+      t.text :visitation
+      t.text :interment
 
       t.timestamps
     end

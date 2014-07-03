@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @funeral.location %>
+</p>
+
+<p>
+  <strong>Service begins:</strong>
+  <%= @funeral.service_begins %>
+</p>
+
+<p>
+  <strong>Visitation:</strong>
+  <%= @funeral.visitation %>
+</p>
+
+<p>
+  <strong>Interment:</strong>
+  <%= @funeral.interment %>
+</p>
+
+<%= link_to 'Edit', edit_funeral_path(@funeral) %> |
+<%= link_to 'Back', funerals_path %>

@@ -1,0 +1,33 @@
+<%= form_for([:admin, @funeral], html: {role: 'form' }) do |f| %>
+  <% if @funeral.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@funeral.errors.count, "error") %> prohibited this funeral from being saved:</h2>
+
+      <ul>
+      <% @funeral.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :location %><br>
+    <%= f.text_area :location, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :service_begins %><br>
+    <%= f.datetime_select :service_begins, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :visitation %><br>
+    <%= f.text_area :visitation, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :interment %><br>
+    <%= f.text_area :interment, class: 'form-control' %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

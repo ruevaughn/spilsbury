@@ -1,0 +1,33 @@
+<h1>Listing funerals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Service begins</th>
+      <th>Visitation</th>
+      <th>Interment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @funerals.each do |funeral| %>
+      <tr>
+        <td><%= funeral.location %></td>
+        <td><%= funeral.service_begins %></td>
+        <td><%= funeral.visitation %></td>
+        <td><%= funeral.interment %></td>
+      <% if admin_signed_in? %>
+        <td><%= link_to 'Show', funeral %></td>
+        <td><%= link_to 'Edit', edit_funeral_path(funeral) %></td>
+        <td><%= link_to 'Destroy', funeral, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if admin_signed_in? %> <%= link_to 'New Funeral', new_admin_funeral_path %> <% end %>

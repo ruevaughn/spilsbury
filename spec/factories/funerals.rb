@@ -2,8 +2,9 @@
 
 FactoryGirl.define do
   factory :funeral do
-    date "MyString"
     location "MyText"
-    person 1
+    service_begins "2014-07-03 12:38:05"
+    visitation "MyText"
+    interment "MyText"
   end
 end

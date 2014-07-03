@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :funerals
+
   resources :staffs, only: [:index]
 
   get 'home', action: 'home', controller: 'static', as: :home
@@ -10,6 +12,9 @@ Rails.application.routes.draw do
   get "admin/obituaries" => "obituaries#index"
   get "admin/obituary/:id" => "obituaries#show"
 
+  get "admin/funerals" => "funerals#index"
+  get "admin/funeral/:id" => "funerals#show"
+
   devise_for :admins
   root 'static#home'
 
@@ -19,7 +24,8 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     get 'home', action: 'home', controller: 'static', as: :panel
-    resources :obituaries
+    resources :obituaries, except: [:index, :show]
+    resources :funerals, except: [:index, :show]
     resources :guestbooks
     resources :staffs
   end
