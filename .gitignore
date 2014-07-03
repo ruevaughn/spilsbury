@@ -17,3 +17,4 @@
 
 *.sw[a-z]
 /public/uploads/*
+.DS_Store
