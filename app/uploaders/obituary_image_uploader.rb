@@ -3,7 +3,7 @@ class ObituaryImageUploader < CarrierWave::Uploader::Base
   storage :file
 
   version :thumb do
-    process :resize_to_fit => [82, 100]
+    process :resize_to_fill => [82, 100]
   end
 
   def store_dir
