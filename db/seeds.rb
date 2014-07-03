@@ -25,8 +25,14 @@ admin.save!
 
 Obituary.delete_all
 Guestbook.delete_all
-10.times do
-  obituary = Obituary.new(first_name: Faker::Name.first_name, middle_name: Faker::Name.first_name, last_name: Faker::Name.last_name, born_date: random_born_date, death_date: random_death_date)
+5.times do
+  obituary = Obituary.new(first_name: Faker::Name.first_name, middle_name: Faker::Name.first_name, last_name: Faker::Name.last_name, born_date: random_born_date, death_date: random_death_date, gender: 'male')
+  obituary.build_guestbook
+  obituary.save!
+end
+
+5.times do
+  obituary = Obituary.new(first_name: Faker::Name.first_name, middle_name: Faker::Name.first_name, last_name: Faker::Name.last_name, born_date: random_born_date, death_date: random_death_date, gender: 'female')
   obituary.build_guestbook
   obituary.save!
 end

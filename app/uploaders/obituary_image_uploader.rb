@@ -1,4 +1,5 @@
 class ObituaryImageUploader < CarrierWave::Uploader::Base
+
   storage :file
 
   def store_dir
@@ -6,7 +7,11 @@ class ObituaryImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+    if is_male?
+      ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_male.jpg"].compact.join('_'))
+    else
+      ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_female.jpg"].compact.join('_'))
+    end
   end
 
   def extension_white_list
