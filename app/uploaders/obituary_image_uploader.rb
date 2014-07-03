@@ -1,6 +1,10 @@
 class ObituaryImageUploader < CarrierWave::Uploader::Base
-
+  include CarrierWave::MiniMagick
   storage :file
+
+  version :thumb do
+    process :resize_to_fit => [82, 100]
+  end
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
@@ -13,6 +17,7 @@ class ObituaryImageUploader < CarrierWave::Uploader::Base
       ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default_female.jpg"].compact.join('_'))
     end
   end
+
 
   def extension_white_list
     %w(jpg jpeg gif png)
