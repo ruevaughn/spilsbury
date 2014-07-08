@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe StaffsController, :type => :controller do
+RSpec.describe Admin::StaffsController, :type => :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # Staff. As you add validations to Staff, be sure to
@@ -36,6 +36,7 @@ RSpec.describe StaffsController, :type => :controller do
 
   describe "GET new" do
     it "assigns a new staff as @staff" do
+      sign_in(:admin, create(:admin))
       get :new, {}, valid_session
       expect(assigns(:staff)).to be_a_new(Staff)
     end
