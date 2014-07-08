@@ -1,4 +1,5 @@
 require 'faker'
+
 FactoryGirl.define do
   factory :obituary do
     first_name Faker::Name.first_name
