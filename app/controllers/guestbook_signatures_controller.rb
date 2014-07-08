@@ -1,13 +1,10 @@
 class GuestbookSignaturesController < ApplicationController
   before_action :set_guestbook_signature, only: [:show, :edit, :update, :destroy]
 
-  # GET /guestbook_signatures/new
   def new
     @guestbook_signature = GuestbookSignature.new
   end
 
-  # POST /guestbook_signatures
-  # POST /guestbook_signatures.json
   def create
     @guestbook = Guestbook.find(params[:guestbook_id])
     @guestbook.guestbook_signatures.build(guestbook_signature_params)
