@@ -1,5 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe GuestbookSignature, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe GuestbookSignature do
+  it "is valid with valid attributes" do
+    signature = create(:guestbook_signature)
+    expect(signature).to be_valid
+  end
 end
