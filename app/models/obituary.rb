@@ -15,11 +15,11 @@ class Obituary < ActiveRecord::Base
   end
 
   def born_date_to_s
-    born_date.strftime('%B %d, %Y')
+    born_date.strftime('%b %d %Y')
   end
 
   def death_date_to_s
-    death_date.strftime('%B %d, %Y')
+    death_date.strftime('%b %d %Y')
   end
 
   def is_male?
