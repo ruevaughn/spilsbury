@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140703183805) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
 
   create_table "funerals", force: true do |t|
     t.text     "location"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140703183805) do
     t.datetime "updated_at"
   end
 
-  add_index "guestbook_signatures", ["guestbook_id"], name: "index_guestbook_signatures_on_guestbook_id"
+  add_index "guestbook_signatures", ["guestbook_id"], name: "index_guestbook_signatures_on_guestbook_id", using: :btree
 
   create_table "guestbooks", force: true do |t|
     t.integer  "obituary_id"
