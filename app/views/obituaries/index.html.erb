@@ -15,7 +15,7 @@
   <tbody>
     <% @obituaries.each do |obituary| %>
       <tr>
-        <td><%= image_tag obituary.obituary_image_url.to_s %>
+        <td><%= image_tag obituary.obituary_image.thumb.url.to_s %>
 
         <td><%= obituary.name %></td>
         <td><%= obituary.life_range %></td>

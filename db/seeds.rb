@@ -36,3 +36,5 @@ end
   obituary.build_guestbook
   obituary.save!
 end
+# Rails.public_path.to_
+# CarrierWave.root
