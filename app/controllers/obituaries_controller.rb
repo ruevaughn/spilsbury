@@ -1,6 +1,6 @@
 class ObituariesController < ApplicationController
   def index
-    @obituaries = Obituary.all.descending
+    @obituaries = Obituary.all.descending.page params[:page]
   end
 
   def show

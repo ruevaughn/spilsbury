@@ -6,6 +6,8 @@ class Obituary < ActiveRecord::Base
   scope :ascending, -> {order("death_date asc")}
   scope :descending, -> {order("death_date desc")}
 
+  paginates_per 8
+
   def name
     first_name + " " + last_name
   end
