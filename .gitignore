@@ -18,3 +18,7 @@
 *.sw[a-z]
 /public/uploads/*
 .DS_Store
+
+# Thinking Sphinx files
+/db/sphinx/*
+/log/development.sphinx.pid
