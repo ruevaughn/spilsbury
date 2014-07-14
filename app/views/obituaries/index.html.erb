@@ -6,7 +6,9 @@
 
   <%= submit_tag("Search", class: 'btn btn-default') %>
 <% end %>
-<%= link_to 'clear', obituaries_path %>
+<% if params[:q] %>
+  <%= link_to 'clear', obituaries_path %>
+<% end %>
 
 <table class='table'>
   <thead>
