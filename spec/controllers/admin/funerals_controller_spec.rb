@@ -1,36 +1,21 @@
 require 'rails_helper'
 
-RSpec.describe Admin::FuneralsController, :type => :controller do
-
+describe Admin::FuneralsController do
+  before(:each) do
+    sign_in(:admin, create(:admin))
+  end
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:funeral)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    attributes_for(:funeral, service_begins: nil)
   }
 
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all funerals as @funerals" do
-      funeral = Funeral.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:funerals)).to eq([funeral])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested funeral as @funeral" do
-      funeral = Funeral.create! valid_attributes
-      get :show, {:id => funeral.to_param}, valid_session
-      expect(assigns(:funeral)).to eq(funeral)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new funeral as @funeral" do
-      sign_in(:admin, create(:admin))
       get :new, {}, valid_session
       expect(assigns(:funeral)).to be_a_new(Funeral)
     end
@@ -80,14 +65,14 @@ RSpec.describe Admin::FuneralsController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { location: 'string' }
       }
 
       it "updates the requested funeral" do
         funeral = Funeral.create! valid_attributes
         put :update, {:id => funeral.to_param, :funeral => new_attributes}, valid_session
         funeral.reload
-        skip("Add assertions for updated state")
+        expect(funeral.location).to eq(new_attributes[:location])
       end
 
       it "assigns the requested funeral as @funeral" do
