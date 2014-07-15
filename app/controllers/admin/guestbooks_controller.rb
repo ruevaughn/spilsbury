@@ -56,7 +56,7 @@ class Admin::GuestbooksController < Admin::ApplicationController
   def destroy
     @guestbook.destroy
     respond_to do |format|
-      format.html { redirect_to guestbooks_url, notice: 'Guestbook was successfully destroyed.' }
+      format.html { redirect_to admin_guestbooks_url, notice: 'Guestbook was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

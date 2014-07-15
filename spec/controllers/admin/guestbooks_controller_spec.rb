@@ -1,13 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe Admin::GuestbooksController, :type => :controller do
+describe Admin::GuestbooksController do
+  before(:each) do
+    sign_in :admin, create(:admin)
+  end
 
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for(:guestbook, obituary_id: 1)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    attributes_for(:guestbook, obituary_id: nil)
   }
 
   let(:valid_session) { {} }
@@ -80,14 +83,14 @@ RSpec.describe Admin::GuestbooksController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { obituary_id: 2 }
       }
 
       it "updates the requested guestbook" do
         guestbook = Guestbook.create! valid_attributes
         put :update, {:id => guestbook.to_param, :guestbook => new_attributes}, valid_session
         guestbook.reload
-        skip("Add assertions for updated state")
+        expect(guestbook.obituary_id).to eq 2
       end
 
       it "assigns the requested guestbook as @guestbook" do
@@ -129,7 +132,7 @@ RSpec.describe Admin::GuestbooksController, :type => :controller do
     it "redirects to the guestbooks list" do
       guestbook = Guestbook.create! valid_attributes
       delete :destroy, {:id => guestbook.to_param}, valid_session
-      expect(response).to redirect_to(guestbooks_url)
+      expect(response).to redirect_to(admin_guestbooks_url)
     end
   end
 
