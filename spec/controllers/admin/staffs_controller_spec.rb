@@ -1,21 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe Admin::StaffsController, :type => :controller do
+describe Admin::StaffsController do
+  before(:each) do
+    sign_in(:admin, create(:admin))
+  end
 
-  # This should return the minimal set of attributes required to create a valid
-  # Staff. As you add validations to Staff, be sure to
-  # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for :staff
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    attributes_for(:staff, name: nil)
   }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # StaffsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET index" do
@@ -36,7 +33,6 @@ RSpec.describe Admin::StaffsController, :type => :controller do
 
   describe "GET new" do
     it "assigns a new staff as @staff" do
-      sign_in(:admin, create(:admin))
       get :new, {}, valid_session
       expect(assigns(:staff)).to be_a_new(Staff)
     end
@@ -66,7 +62,7 @@ RSpec.describe Admin::StaffsController, :type => :controller do
 
       it "redirects to the created staff" do
         post :create, {:staff => valid_attributes}, valid_session
-        expect(response).to redirect_to(Staff.last)
+        expect(response).to redirect_to(admin_staffs_url(Staff.last))
       end
     end
 
@@ -86,14 +82,14 @@ RSpec.describe Admin::StaffsController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: 'newname' }
       }
 
       it "updates the requested staff" do
         staff = Staff.create! valid_attributes
         put :update, {:id => staff.to_param, :staff => new_attributes}, valid_session
         staff.reload
-        skip("Add assertions for updated state")
+        expect(staff.name).to eq new_attributes[:name]
       end
 
       it "assigns the requested staff as @staff" do
@@ -105,7 +101,7 @@ RSpec.describe Admin::StaffsController, :type => :controller do
       it "redirects to the staff" do
         staff = Staff.create! valid_attributes
         put :update, {:id => staff.to_param, :staff => valid_attributes}, valid_session
-        expect(response).to redirect_to(staff)
+        expect(response).to redirect_to(admin_staffs_url(staff))
       end
     end
 
@@ -135,7 +131,7 @@ RSpec.describe Admin::StaffsController, :type => :controller do
     it "redirects to the staffs list" do
       staff = Staff.create! valid_attributes
       delete :destroy, {:id => staff.to_param}, valid_session
-      expect(response).to redirect_to(staffs_url)
+      expect(response).to redirect_to(admin_staffs_url)
     end
   end
 
